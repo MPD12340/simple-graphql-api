@@ -22,5 +22,21 @@ export const resolvers = {
       users.push(user);
       return user;
     },
+    updateUsername: (parent, args)=>{
+        const id = args.input.id
+        const username = args.input.newUsername
+        const user = _.find(users, {id: id})
+        user.username = username
+        return user
+    },
+    deleteUser: (parent, args)=>{
+        const id = args.id
+        const user = _.find(users, {id: id})
+        console.log(user)
+        const index = users.indexOf(user)
+        console.log(index)
+        users.splice(index, 1)
+        return user
+    }
   },
 };

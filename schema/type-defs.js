@@ -33,8 +33,14 @@ input createUserInput {
     age: Int!
     nationality: Nationality = BRAZIL
 }
+input updateUsernameInput {
+    id: ID!
+    newUsername: String!
+}
 type Mutation {
 createUser (input: createUserInput!) :  User
+updateUsername (input: updateUsernameInput!) : User
+deleteUser (id: ID!) : User
 }
 
 enum Nationality {
